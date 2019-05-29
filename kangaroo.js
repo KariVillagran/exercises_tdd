@@ -26,7 +26,20 @@ function readLine() {
 
 // Complete the kangaroo function below.
 function kangaroo(x1, v1, x2, v2) {
-
+    if( x1 >= x2 || x2 <= 0 || v1 < 1 || v2 < 1 || v2 > v1 ) {
+        return 'NO';
+    }
+    let res = 'NO';
+    let k1 = x1 + 0, k2 = x2 + 0;
+    do {
+        if (k1 === k2) {
+            res = 'YES';
+        } else {
+            k1 += v1;
+            k2 += v2;
+        }
+    } while (k1 < 10000 && k2 < 10000 && k1 != k2 && k1 < k2);
+    return res;
 
 }
 
@@ -46,4 +59,4 @@ function sum(a, b) {
     return a + b;
 }
 
-module.exports = sum;
+module.exports = {sum, kangaroo};
